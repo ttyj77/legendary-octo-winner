@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 @Service
 public class UserDaoService {
     private static List<User> users = new ArrayList<>();
@@ -19,6 +18,7 @@ public class UserDaoService {
     public List<User> findAll() {
         return users;
     }
+
     /*사용자 추가*/
     public User save(User user){
         if (user.getId() == null) {
