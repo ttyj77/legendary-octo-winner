@@ -43,4 +43,19 @@ public class UserController {
 
         return user;
     }
+    @DeleteMapping("/user/{id}")
+    public void deleteUser(@PathVariable int id){
+        User user = service.deleteById(id);
+        if (user == null){
+            throw new UserNotFoundException(String.format("ID[%s] not found",id));
+        }
+    }
+
+    @PutMapping("/user/{id}")
+    public void updateUser(@PathVariable int id, @RequestBody User user){
+        User result = service.updateById(id, user);
+        if (result == null){
+            throw new UserNotFoundException(String.format("ID[%s] not found",id));
+        }
+    }
 }
